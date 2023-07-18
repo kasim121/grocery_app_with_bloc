@@ -30,13 +30,18 @@ class _CartState extends State<Cart> {
     body: BlocConsumer<CartBloc,CartState>(
       bloc: cartBloc,
       listener: (context,state){
-
+    if (state is CartProductCartedItemRemovedActionState) {
+    
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text("Carted Item Removed")));
+    } 
       },
       listenWhen: (previous,current)=> current is CartActinState,
       buildWhen: (previous,current)=>current is !CartActinState,
       builder: (context,state) {
          switch(state.runtimeType){
 case CartSuccesState:
+
 final successState = state as CartSuccesState;
 return   ListView.builder(
                   itemCount: successState.cartItems.length,

@@ -17,18 +17,6 @@ class CartSuccesState extends CartState{
 
   CartSuccesState({required this.cartItems});
 }
-// class HomeLoadingState extends CartState{
+class CartProductCartedItemRemovedActionState extends CartActinState{
 
-// }
-// class HomeLoadedSuccessState extends CartState{
-// final List<HomeProductsDataModel> products;
-
-//   HomeLoadedSuccessState({required this.products});
-
-// }
-
-// class HomeErrorState extends CartState{
-
-// }
-// class HomeWishlistButtonNavigateEventActionState extends HomeActinState{}
-// class HomeCartButtonNavigateEventActionState extends HomeActinState{}
+}

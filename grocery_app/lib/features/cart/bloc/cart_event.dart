@@ -12,12 +12,4 @@ class CartRemoveFromCartEvent extends CartEvent {
   CartRemoveFromCartEvent({required this.productsDataModel});
 }
 
-// class HomeCartButtonClickedEvent extends CartEvent {
-//     final HomeProductsDataModel clickedProduct;
 
-//   HomeCartButtonClickedEvent({required this.clickedProduct});
-// }
-
-// class HomeWishlistButtonNavigateEvent extends CartEvent {}
-
-// class HomeCartButtonNavigateEvent extends CartEvent {}
