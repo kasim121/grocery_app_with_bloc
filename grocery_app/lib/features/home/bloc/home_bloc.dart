@@ -20,9 +20,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
   FutureOr<void> homeInitialEvent(
       HomeInitialEvent event, Emitter<HomeState> emit) async {
-    print("initial homeInitialEvent");
+  
     emit(HomeLoadingState());
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
     emit(
       HomeLoadedSuccessState(
         products: GroceryData.groceryProducts
@@ -39,6 +39,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   FutureOr<void> homeProductWishlistButtonClickedEvent(
       HomeProductWishlistButtonClickedEvent event, Emitter<HomeState> emit) {
+    // ignore: avoid_print
     print("wishilist product clicked");
     wishListItems.add(event.clickedProduct);
     emit(HomeProductItemWishlistedActionState());
@@ -46,20 +47,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   FutureOr<void> homeProductCartButtonClickedEvent(
       HomeProductCartButtonClickedEvent event, Emitter<HomeState> emit) {
-    print("Cart product clicked");
     cartItems.add(event.clickedProduct);
     emit(HomeProductItemCartedActionState());
   }
 
   FutureOr<void> homeWishlistButtonNavigateEvent(
       HomeWishlistButtonNavigateEvent event, Emitter<HomeState> emit) {
-    print("wishilist navigation");
     emit(HomeNavigateToWishlistPageActionState());
   }
 
   FutureOr<void> homeCartButtonNavigateEvent(
       HomeCartButtonNavigateEvent event, Emitter<HomeState> emit) {
-    print("Cart  navigation");
     emit(HomeNavigateToCartPageActionState());
   }
 }

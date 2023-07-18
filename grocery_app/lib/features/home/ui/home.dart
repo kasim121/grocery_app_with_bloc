@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grocery_app/features/home/bloc/home_event.dart';
 import 'package:grocery_app/features/home/bloc/home_state.dart';
@@ -37,22 +36,22 @@ class _HomeState extends State<Home> {
         listener: (BuildContext context, Object? state) {
           if (state is HomeNavigateToCartPageActionState) {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Cart()));
+                context, MaterialPageRoute(builder: (context) => const Cart()));
           } else if (state is HomeNavigateToWishlistPageActionState) {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => WishList()));
+                context, MaterialPageRoute(builder: (context) => const WishList()));
           } else if (state is HomeProductItemCartedActionState) {
             ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text("Item Carted")));
+                .showSnackBar(const SnackBar(content: Text("Item Carted")));
           } else if (state is HomeProductItemWishlistedActionState) {
             ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text("Item Wishlisted")));
+                .showSnackBar(const SnackBar(content: Text("Item Wishlisted")));
           }
         },
         builder: (context, state) {
           switch (state.runtimeType) {
             case HomeLoadingState:
-              return Scaffold(
+              return const Scaffold(
                 body: Center(
                   child: CircularProgressIndicator(),
                 ),
@@ -67,13 +66,13 @@ class _HomeState extends State<Home> {
                       onPressed: () {
                         homeBloc.add(HomeWishlistButtonNavigateEvent());
                       },
-                      icon: Icon(Icons.favorite_border),
+                      icon: const Icon(Icons.favorite_border),
                     ),
                     IconButton(
                       onPressed: () {
                         homeBloc.add(HomeCartButtonNavigateEvent());
                       },
-                      icon: Icon(Icons.shopping_cart_outlined),
+                      icon: const Icon(Icons.shopping_cart_outlined),
                     )
                   ],
                 ),
@@ -88,11 +87,11 @@ class _HomeState extends State<Home> {
               );
 
             case HomeActinState:
-              return Scaffold(
+              return const Scaffold(
                 body: Center(child: Text("Error")),
               );
             default:
-              return SizedBox();
+              return const SizedBox();
           }
         },
       ),

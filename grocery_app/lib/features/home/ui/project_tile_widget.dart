@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:grocery_app/features/home/bloc/home_bloc.dart';
 import 'package:grocery_app/features/home/bloc/home_event.dart';
 import 'package:grocery_app/features/home/models/product_model.dart';
@@ -57,13 +56,13 @@ class ProductsTileWidget extends StatelessWidget {
                     onPressed: () {
                       homeBloc.add(HomeProductWishlistButtonClickedEvent(clickedProduct: productsDataModel));
                     },
-                    icon: Icon(Icons.favorite_border),
+                    icon: const Icon(Icons.favorite_border),
                   ),
                   IconButton(
                     onPressed: () {
                       homeBloc.add(HomeProductCartButtonClickedEvent(clickedProduct: productsDataModel));
                     },
-                    icon: Icon(Icons.shopping_cart_outlined),
+                    icon: const Icon(Icons.shopping_cart_outlined),
                   ),
                 ],
               )
