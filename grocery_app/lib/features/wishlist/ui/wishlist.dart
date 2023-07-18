@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:grocery_app/features/cart/bloc/cart_event.dart';
+
 import 'package:grocery_app/features/wishlist/bloc/wishlist_bloc.dart';
 import 'package:grocery_app/features/wishlist/ui/wishlist_tile_widget.dart';
 
-import '../../home/ui/project_tile_widget.dart';
 import '../bloc/wishlist_event.dart';
 import '../bloc/wishlist_state.dart';
 
@@ -23,19 +22,19 @@ class _WishListState extends State<WishList> {
   @override
   void initState() {
     wishlistBloc.add(WishlistInitialEvent());
-    // TODO: implement initState
+ 
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text("Cart Items"),),
+    return Scaffold(appBar: AppBar(title: const Text("Cart Items"),),
     body: BlocConsumer<WishlistBloc,WishListState>(
       bloc: wishlistBloc,
       listener: (context,state){
     if (state is WishListProductWishListedItemRemovedActionState) {
     
             ScaffoldMessenger.of(context)
-                .showSnackBar(SnackBar(content: Text("Wishlisted Item Removed")));
+                .showSnackBar(const SnackBar(content: Text("Wishlisted Item Removed")));
     } 
       },
       listenWhen: (previous,current)=> current is WishListActinState,
